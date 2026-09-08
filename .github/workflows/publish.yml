@@ -1,0 +1,49 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Check if this version is already published
+        id: check
+        run: |
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+          PUBLISHED_VERSION=$(npm view n8n-nodes-scrapio version 2>/dev/null || echo "none")
+          echo "local=$LOCAL_VERSION" >> "$GITHUB_OUTPUT"
+          [ "$LOCAL_VERSION" = "$PUBLISHED_VERSION" ] && echo "skip=true" >> "$GITHUB_OUTPUT" || echo "skip=false" >> "$GITHUB_OUTPUT"
+
+      - name: Publish n8n-nodes-scrapio to npm
+        if: steps.check.outputs.skip != 'true'
+        # --ignore-scripts: n8n-workflow (needed only for its TypeScript
+        # types, via `import type`) transitively pulls in
+        # @n8n/expression-runtime -> isolated-vm, a native module used by
+        # n8n's own runtime Code-node sandbox that this package never
+        # executes. Its node-gyp build fails on this runner's toolchain and
+        # is irrelevant to us either way -- skip all install scripts so it's
+        # never compiled.
+        run: |
+          npm install --ignore-scripts
+          npm run build
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Skip notice
+        if: steps.check.outputs.skip == 'true'
+        run: echo "::notice::n8n-nodes-scrapio ${{ steps.check.outputs.local }} is already published on npm -- skipping."
