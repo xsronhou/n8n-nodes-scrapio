@@ -4,8 +4,9 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
+	JsonObject,
 } from "n8n-workflow";
-import { NodeConnectionTypes, NodeOperationError } from "n8n-workflow";
+import { NodeApiError, NodeConnectionTypes, NodeOperationError } from "n8n-workflow";
 import { buildProperties } from "./DescriptionBuilder";
 import { OPERATIONS } from "./OperationManifest";
 import { callOperation, waitForJob } from "./GenericFunctions";
@@ -84,7 +85,10 @@ export class Scrapio implements INodeType {
 					});
 					continue;
 				}
-				throw error;
+				if (error instanceof NodeOperationError) {
+					throw new NodeOperationError(this.getNode(), error, { itemIndex });
+				}
+				throw new NodeApiError(this.getNode(), error as JsonObject, { itemIndex });
 			}
 		}
 

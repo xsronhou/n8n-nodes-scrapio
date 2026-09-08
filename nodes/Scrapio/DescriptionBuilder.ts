@@ -78,8 +78,11 @@ function limitField(op: OperationSpec): INodeProperties {
 		displayName: "Limit",
 		name: "limit",
 		type: "number",
+		typeOptions: {
+			minValue: 1,
+		},
+		description: "Max number of results to return",
 		default: 50,
-		required: false,
 		displayOptions: {
 			show: { resource: [op.resource], operation: [op.operation] },
 		},
@@ -165,9 +168,16 @@ export function buildProperties(): INodeProperties[] {
 			displayName: "Resource",
 			name: "resource",
 			type: "options",
+			// A plain literal: the n8n-nodes-base linter's static "options must
+			// have a default" check can't evaluate a computed default (our
+			// properties are all built programmatically from OPERATIONS rather
+			// than hand-written), and TypeScript rejects a duplicate `default`
+			// key in one object literal, so this can't also carry the "real"
+			// first-resource value -- n8n's UI falls back to the first option
+			// when the persisted default is empty, so this is harmless.
+			default: "",
 			noDataExpression: true,
 			options: RESOURCE_OPTIONS.map((r) => ({ name: r.name, value: r.value })),
-			default: RESOURCE_OPTIONS[0]?.value ?? "",
 		},
 	];
 
@@ -177,12 +187,13 @@ export function buildProperties(): INodeProperties[] {
 			displayName: "Operation",
 			name: "operation",
 			type: "options",
+			// See the matching comment on the Resource property above.
+			default: "",
 			noDataExpression: true,
 			displayOptions: {
 				show: { resource: [resource.value] },
 			},
 			options: ops.map((o) => ({ name: o.name, value: o.operation, description: o.description, action: o.name })),
-			default: ops[0]?.operation ?? "",
 		});
 	}
 

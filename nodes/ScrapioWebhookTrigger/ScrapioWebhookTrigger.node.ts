@@ -92,6 +92,10 @@ export class ScrapioWebhookTrigger implements INodeType {
 					await scrapioRequest(this, "GET", `/v1/webhooks/endpoints/${encodeURIComponent(endpointId)}`);
 					return true;
 				} catch (error) {
+					this.logger.debug("Scrapio webhook endpoint no longer exists server-side, will recreate it", {
+						endpointId,
+						error: error instanceof Error ? error.message : String(error),
+					});
 					return false;
 				}
 			},
@@ -125,7 +129,12 @@ export class ScrapioWebhookTrigger implements INodeType {
 				try {
 					await scrapioRequest(this, "DELETE", `/v1/webhooks/endpoints/${encodeURIComponent(endpointId)}`);
 				} catch (error) {
-					// Already gone (e.g. deleted manually via the dashboard) -- nothing left to do.
+					// Already gone (e.g. deleted manually via the dashboard) -- nothing left to do,
+					// but still log it so an unexpected delete failure isn't fully invisible.
+					this.logger.debug("Failed to delete Scrapio webhook endpoint (may already be gone)", {
+						endpointId,
+						error: error instanceof Error ? error.message : String(error),
+					});
 				}
 
 				// Note: the monitor's `webhook_endpoint_id` is intentionally left pointing at the

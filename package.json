@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-scrapio",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "n8n community node for the Scrapio web-scraping API (fetch, search, e-commerce, social, AI prompting, monitors, and more)",
   "keywords": [
     "n8n-community-node-package",
@@ -11,7 +11,8 @@
   "license": "MIT",
   "homepage": "https://scrapio.dev",
   "author": {
-    "name": "Scrapio"
+    "name": "Scrapio",
+    "email": "support@scrapio.dev"
   },
   "repository": {
     "type": "git",

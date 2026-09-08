@@ -12,6 +12,8 @@ export class ScrapioApi implements ICredentialType {
 
 	documentationUrl = "https://docs.scrapio.dev";
 
+	icon = "file:scrapio.svg" as const;
+
 	properties: INodeProperties[] = [
 		{
 			displayName: "API Key",

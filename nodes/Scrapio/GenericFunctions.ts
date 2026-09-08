@@ -1,13 +1,9 @@
 import type { IDataObject, IExecuteFunctions } from "n8n-workflow";
-import { NodeOperationError } from "n8n-workflow";
+import { NodeOperationError, sleep } from "n8n-workflow";
 import type { FieldSpec, OperationSpec } from "./OperationManifest";
 
 /** Statuses that mean a job is done polling (success, partial, failed, or cancelled). */
 const TERMINAL_JOB_STATUSES = new Set(["completed", "partial", "failed", "cancelled"]);
-
-function sleep(ms: number): Promise<void> {
-	return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 function setAtPath(target: Record<string, unknown>, path: string[], value: unknown): void {
 	let cursor = target;
