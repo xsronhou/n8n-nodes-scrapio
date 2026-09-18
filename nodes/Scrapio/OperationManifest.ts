@@ -40,6 +40,10 @@ export interface OperationSpec {
 
 export const RESOURCE_OPTIONS: Array<{ name: string; value: string }> = [
   {
+    "name": "Instagram",
+    "value": "instagram"
+  },
+  {
     "name": "Fetch",
     "value": "fetch"
   },
@@ -8497,5 +8501,530 @@ export const OPERATIONS: OperationSpec[] = [
       }
     ],
     "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getPosts",
+    "name": "Get Posts",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getPosts",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getPost",
+    "name": "Get Post",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getPost",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/post",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getHighlights",
+    "name": "Get Highlights",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getHighlights",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/highlights",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getHighlight",
+    "name": "Get Highlight",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getHighlight",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/highlight",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "search",
+    "name": "Search",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "search",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getTagged",
+    "name": "Get Tagged",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getTagged",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/tagged",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getComments",
+    "name": "Get Comments",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getComments",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/comments",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "media_id",
+        "jsonKey": "media_id",
+        "displayName": "Media ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "searchHashtag",
+    "name": "Search Hashtag",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "searchHashtag",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/hashtag-search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "searchProfiles",
+    "name": "Search Profiles",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "searchProfiles",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/profile-search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "searchPopular",
+    "name": "Search Popular",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "searchPopular",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/popular-search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "searchReels",
+    "name": "Search Reels",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "searchReels",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/reels-search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getReelsByAudio",
+    "name": "Get Reels By Audio",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getReelsByAudio",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/reels-by-audio",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "audio_id",
+        "jsonKey": "audio_id",
+        "displayName": "Audio ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getTrendingReels",
+    "name": "Get Trending Reels",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getTrendingReels",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/trending-reels",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getHashtagPosts",
+    "name": "Get Hashtag Posts",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getHashtagPosts",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/hashtag-posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "hashtag",
+        "jsonKey": "hashtag",
+        "displayName": "Hashtag",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getBasicProfile",
+    "name": "Get Basic Profile",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getBasicProfile",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/basic-profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "user_id",
+        "jsonKey": "user_id",
+        "displayName": "User ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getCommentReplies",
+    "name": "Get Comment Replies",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getCommentReplies",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/comment-replies",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "media_id",
+        "jsonKey": "media_id",
+        "displayName": "Media ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      },
+      {
+        "name": "comment_id",
+        "jsonKey": "comment_id",
+        "displayName": "Comment ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "instagram",
+    "resourceName": "Instagram",
+    "operation": "getReels",
+    "name": "Get Reels",
+    "description": "",
+    "clientPath": [
+      "instagram"
+    ],
+    "method": "getReels",
+    "httpMethod": "GET",
+    "path": "/v1/instagram/reels",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
   }
 ];
