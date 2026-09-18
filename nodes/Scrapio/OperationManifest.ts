@@ -178,6 +178,62 @@ export const RESOURCE_OPTIONS: Array<{ name: string; value: string }> = [
   {
     "name": "Hacker News Monitors",
     "value": "hackerNewsMonitors"
+  },
+  {
+    "name": "Telegram",
+    "value": "telegram"
+  },
+  {
+    "name": "Rumble",
+    "value": "rumble"
+  },
+  {
+    "name": "Truth Social",
+    "value": "truthSocial"
+  },
+  {
+    "name": "Bluesky",
+    "value": "bluesky"
+  },
+  {
+    "name": "Twitch",
+    "value": "twitch"
+  },
+  {
+    "name": "Apple Music",
+    "value": "appleMusic"
+  },
+  {
+    "name": "Spotify",
+    "value": "spotify"
+  },
+  {
+    "name": "SoundCloud",
+    "value": "soundcloud"
+  },
+  {
+    "name": "Kwai",
+    "value": "kwai"
+  },
+  {
+    "name": "Kick",
+    "value": "kick"
+  },
+  {
+    "name": "Snapchat",
+    "value": "snapchat"
+  },
+  {
+    "name": "Pinterest",
+    "value": "pinterest"
+  },
+  {
+    "name": "LinkedIn",
+    "value": "linkedin"
+  },
+  {
+    "name": "Link in Bio",
+    "value": "linkInBio"
   }
 ];
 
@@ -442,10 +498,8 @@ export const OPERATIONS: OperationSpec[] = [
         "options": [
           "classic",
           "news",
-          "maps",
           "images",
           "lens",
-          "shopping",
           "ai_mode",
           "ads"
         ],
@@ -527,18 +581,44 @@ export const OPERATIONS: OperationSpec[] = [
         "rawType": "number | string"
       },
       {
-        "name": "sort_by",
-        "jsonKey": "sort_by",
-        "displayName": "Sort By",
-        "type": "options",
+        "name": "extra_params",
+        "jsonKey": "extra_params",
+        "displayName": "Extra Params",
+        "type": "string",
         "required": false,
-        "options": [
-          "relevance",
-          "reviews",
-          "price_asc",
-          "price_desc"
-        ],
-        "rawType": "GoogleSortBy"
+        "rawType": "string"
+      },
+      {
+        "name": "light_request",
+        "jsonKey": "light_request",
+        "displayName": "Light Request",
+        "type": "boolean",
+        "required": false,
+        "rawType": "boolean"
+      },
+      {
+        "name": "add_html",
+        "jsonKey": "add_html",
+        "displayName": "Add HTML",
+        "type": "boolean",
+        "required": false,
+        "rawType": "boolean"
+      },
+      {
+        "name": "nfpr",
+        "jsonKey": "nfpr",
+        "displayName": "NFPR",
+        "type": "boolean",
+        "required": false,
+        "rawType": "boolean"
+      },
+      {
+        "name": "tag",
+        "jsonKey": "tag",
+        "displayName": "Tag",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
       }
     ]
   },
@@ -6771,6 +6851,1651 @@ export const OPERATIONS: OperationSpec[] = [
     "idLabel": "Monitor ID",
     "isQueue": false,
     "requiredFields": [],
+    "optionalFields": []
+  }
+,
+  {
+    "resource": "telegram",
+    "resourceName": "Telegram",
+    "operation": "getChannel",
+    "name": "Get Channel",
+    "description": "",
+    "clientPath": [
+      "telegram"
+    ],
+    "method": "getChannel",
+    "httpMethod": "GET",
+    "path": "/v1/telegram/channel",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "telegram",
+    "resourceName": "Telegram",
+    "operation": "getChannelPosts",
+    "name": "Get Channel Posts",
+    "description": "",
+    "clientPath": [
+      "telegram"
+    ],
+    "method": "getChannelPosts",
+    "httpMethod": "GET",
+    "path": "/v1/telegram/channel/posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "rumble",
+    "resourceName": "Rumble",
+    "operation": "search",
+    "name": "Search",
+    "description": "",
+    "clientPath": [
+      "rumble"
+    ],
+    "method": "search",
+    "httpMethod": "GET",
+    "path": "/v1/rumble/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "rumble",
+    "resourceName": "Rumble",
+    "operation": "getChannelVideos",
+    "name": "Get Channel Videos",
+    "description": "",
+    "clientPath": [
+      "rumble"
+    ],
+    "method": "getChannelVideos",
+    "httpMethod": "GET",
+    "path": "/v1/rumble/channel/videos",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "rumble",
+    "resourceName": "Rumble",
+    "operation": "getVideo",
+    "name": "Get Video",
+    "description": "",
+    "clientPath": [
+      "rumble"
+    ],
+    "method": "getVideo",
+    "httpMethod": "GET",
+    "path": "/v1/rumble/video",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "truthSocial",
+    "resourceName": "Truth Social",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "truthSocial"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/truthsocial/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "truthSocial",
+    "resourceName": "Truth Social",
+    "operation": "getUserPosts",
+    "name": "Get User Posts",
+    "description": "",
+    "clientPath": [
+      "truthSocial"
+    ],
+    "method": "getUserPosts",
+    "httpMethod": "GET",
+    "path": "/v1/truthsocial/user/posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "next_max_id",
+        "jsonKey": "next_max_id",
+        "displayName": "Next Max ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "truthSocial",
+    "resourceName": "Truth Social",
+    "operation": "getPost",
+    "name": "Get Post",
+    "description": "",
+    "clientPath": [
+      "truthSocial"
+    ],
+    "method": "getPost",
+    "httpMethod": "GET",
+    "path": "/v1/truthsocial/post",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "bluesky",
+    "resourceName": "Bluesky",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "bluesky"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/bluesky/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "user_id",
+        "jsonKey": "user_id",
+        "displayName": "User ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "bluesky",
+    "resourceName": "Bluesky",
+    "operation": "getUserPosts",
+    "name": "Get User Posts",
+    "description": "",
+    "clientPath": [
+      "bluesky"
+    ],
+    "method": "getUserPosts",
+    "httpMethod": "GET",
+    "path": "/v1/bluesky/user/posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "user_id",
+        "jsonKey": "user_id",
+        "displayName": "User ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "bluesky",
+    "resourceName": "Bluesky",
+    "operation": "getPost",
+    "name": "Get Post",
+    "description": "",
+    "clientPath": [
+      "bluesky"
+    ],
+    "method": "getPost",
+    "httpMethod": "GET",
+    "path": "/v1/bluesky/post",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "twitch",
+    "resourceName": "Twitch",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "twitch"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/twitch/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "twitch",
+    "resourceName": "Twitch",
+    "operation": "getUserVideos",
+    "name": "Get User Videos",
+    "description": "",
+    "clientPath": [
+      "twitch"
+    ],
+    "method": "getUserVideos",
+    "httpMethod": "GET",
+    "path": "/v1/twitch/user/videos",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "twitch",
+    "resourceName": "Twitch",
+    "operation": "getUserSchedule",
+    "name": "Get User Schedule",
+    "description": "",
+    "clientPath": [
+      "twitch"
+    ],
+    "method": "getUserSchedule",
+    "httpMethod": "GET",
+    "path": "/v1/twitch/user/schedule",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "twitch",
+    "resourceName": "Twitch",
+    "operation": "getClip",
+    "name": "Get Clip",
+    "description": "",
+    "clientPath": [
+      "twitch"
+    ],
+    "method": "getClip",
+    "httpMethod": "GET",
+    "path": "/v1/twitch/clip",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "appleMusic",
+    "resourceName": "Apple Music",
+    "operation": "getArtist",
+    "name": "Get Artist",
+    "description": "",
+    "clientPath": [
+      "appleMusic"
+    ],
+    "method": "getArtist",
+    "httpMethod": "GET",
+    "path": "/v1/apple-music/artist",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "appleMusic",
+    "resourceName": "Apple Music",
+    "operation": "getAlbum",
+    "name": "Get Album",
+    "description": "",
+    "clientPath": [
+      "appleMusic"
+    ],
+    "method": "getAlbum",
+    "httpMethod": "GET",
+    "path": "/v1/apple-music/album",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "appleMusic",
+    "resourceName": "Apple Music",
+    "operation": "getTrack",
+    "name": "Get Track",
+    "description": "",
+    "clientPath": [
+      "appleMusic"
+    ],
+    "method": "getTrack",
+    "httpMethod": "GET",
+    "path": "/v1/apple-music/track",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "appleMusic",
+    "resourceName": "Apple Music",
+    "operation": "search",
+    "name": "Search",
+    "description": "",
+    "clientPath": [
+      "appleMusic"
+    ],
+    "method": "search",
+    "httpMethod": "GET",
+    "path": "/v1/apple-music/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "type",
+        "jsonKey": "type",
+        "displayName": "Type",
+        "type": "options",
+        "required": false,
+        "options": [
+          "all",
+          "song",
+          "album",
+          "artist",
+          "playlist",
+          "station",
+          "music_video",
+          "radio_episode"
+        ],
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "spotify",
+    "resourceName": "Spotify",
+    "operation": "getArtist",
+    "name": "Get Artist",
+    "description": "",
+    "clientPath": [
+      "spotify"
+    ],
+    "method": "getArtist",
+    "httpMethod": "GET",
+    "path": "/v1/spotify/artist",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "spotify",
+    "resourceName": "Spotify",
+    "operation": "getTrack",
+    "name": "Get Track",
+    "description": "",
+    "clientPath": [
+      "spotify"
+    ],
+    "method": "getTrack",
+    "httpMethod": "GET",
+    "path": "/v1/spotify/track",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "spotify",
+    "resourceName": "Spotify",
+    "operation": "getAlbum",
+    "name": "Get Album",
+    "description": "",
+    "clientPath": [
+      "spotify"
+    ],
+    "method": "getAlbum",
+    "httpMethod": "GET",
+    "path": "/v1/spotify/album",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "spotify",
+    "resourceName": "Spotify",
+    "operation": "getPlaylist",
+    "name": "Get Playlist",
+    "description": "",
+    "clientPath": [
+      "spotify"
+    ],
+    "method": "getPlaylist",
+    "httpMethod": "GET",
+    "path": "/v1/spotify/playlist",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "spotify",
+    "resourceName": "Spotify",
+    "operation": "getPodcast",
+    "name": "Get Podcast",
+    "description": "",
+    "clientPath": [
+      "spotify"
+    ],
+    "method": "getPodcast",
+    "httpMethod": "GET",
+    "path": "/v1/spotify/podcast",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "id",
+        "jsonKey": "id",
+        "displayName": "ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "spotify",
+    "resourceName": "Spotify",
+    "operation": "search",
+    "name": "Search",
+    "description": "",
+    "clientPath": [
+      "spotify"
+    ],
+    "method": "search",
+    "httpMethod": "GET",
+    "path": "/v1/spotify/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "soundcloud",
+    "resourceName": "SoundCloud",
+    "operation": "getArtist",
+    "name": "Get Artist",
+    "description": "",
+    "clientPath": [
+      "soundcloud"
+    ],
+    "method": "getArtist",
+    "httpMethod": "GET",
+    "path": "/v1/soundcloud/artist",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "soundcloud",
+    "resourceName": "SoundCloud",
+    "operation": "getArtistTracks",
+    "name": "Get Artist Tracks",
+    "description": "",
+    "clientPath": [
+      "soundcloud"
+    ],
+    "method": "getArtistTracks",
+    "httpMethod": "GET",
+    "path": "/v1/soundcloud/artist/tracks",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "soundcloud",
+    "resourceName": "SoundCloud",
+    "operation": "getTrack",
+    "name": "Get Track",
+    "description": "",
+    "clientPath": [
+      "soundcloud"
+    ],
+    "method": "getTrack",
+    "httpMethod": "GET",
+    "path": "/v1/soundcloud/track",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "kwai",
+    "resourceName": "Kwai",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "kwai"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/kwai/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "kwai",
+    "resourceName": "Kwai",
+    "operation": "getUserPosts",
+    "name": "Get User Posts",
+    "description": "",
+    "clientPath": [
+      "kwai"
+    ],
+    "method": "getUserPosts",
+    "httpMethod": "GET",
+    "path": "/v1/kwai/user/posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "kwai",
+    "resourceName": "Kwai",
+    "operation": "getPost",
+    "name": "Get Post",
+    "description": "",
+    "clientPath": [
+      "kwai"
+    ],
+    "method": "getPost",
+    "httpMethod": "GET",
+    "path": "/v1/kwai/post",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "kick",
+    "resourceName": "Kick",
+    "operation": "getClip",
+    "name": "Get Clip",
+    "description": "",
+    "clientPath": [
+      "kick"
+    ],
+    "method": "getClip",
+    "httpMethod": "GET",
+    "path": "/v1/kick/clip",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "snapchat",
+    "resourceName": "Snapchat",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "snapchat"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/snapchat/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "handle",
+        "jsonKey": "handle",
+        "displayName": "Handle",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "snapchat",
+    "resourceName": "Snapchat",
+    "operation": "getSpotlight",
+    "name": "Get Spotlight",
+    "description": "",
+    "clientPath": [
+      "snapchat"
+    ],
+    "method": "getSpotlight",
+    "httpMethod": "GET",
+    "path": "/v1/snapchat/spotlight",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "pinterest",
+    "resourceName": "Pinterest",
+    "operation": "getProfile",
+    "name": "Get Profile",
+    "description": "",
+    "clientPath": [
+      "pinterest"
+    ],
+    "method": "getProfile",
+    "httpMethod": "GET",
+    "path": "/v1/pinterest/profile",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "pinterest",
+    "resourceName": "Pinterest",
+    "operation": "getPins",
+    "name": "Get Pins",
+    "description": "",
+    "clientPath": [
+      "pinterest"
+    ],
+    "method": "getPins",
+    "httpMethod": "GET",
+    "path": "/v1/pinterest/pins",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "pinterest",
+    "resourceName": "Pinterest",
+    "operation": "getPin",
+    "name": "Get Pin",
+    "description": "",
+    "clientPath": [
+      "pinterest"
+    ],
+    "method": "getPin",
+    "httpMethod": "GET",
+    "path": "/v1/pinterest/pin",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "pinterest",
+    "resourceName": "Pinterest",
+    "operation": "search",
+    "name": "Search",
+    "description": "",
+    "clientPath": [
+      "pinterest"
+    ],
+    "method": "search",
+    "httpMethod": "GET",
+    "path": "/v1/pinterest/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "linkedin",
+    "resourceName": "LinkedIn",
+    "operation": "getCompany",
+    "name": "Get Company",
+    "description": "",
+    "clientPath": [
+      "linkedin"
+    ],
+    "method": "getCompany",
+    "httpMethod": "GET",
+    "path": "/v1/linkedin/company",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "vanity_name",
+        "jsonKey": "vanity_name",
+        "displayName": "Vanity Name",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "linkedin",
+    "resourceName": "LinkedIn",
+    "operation": "getCompanyPosts",
+    "name": "Get Company Posts",
+    "description": "",
+    "clientPath": [
+      "linkedin"
+    ],
+    "method": "getCompanyPosts",
+    "httpMethod": "GET",
+    "path": "/v1/linkedin/company/posts",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "vanity_name",
+        "jsonKey": "vanity_name",
+        "displayName": "Vanity Name",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "linkedin",
+    "resourceName": "LinkedIn",
+    "operation": "getPost",
+    "name": "Get Post",
+    "description": "",
+    "clientPath": [
+      "linkedin"
+    ],
+    "method": "getPost",
+    "httpMethod": "GET",
+    "path": "/v1/linkedin/post",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "linkedin",
+    "resourceName": "LinkedIn",
+    "operation": "searchAdLibrary",
+    "name": "Search Ad Library",
+    "description": "",
+    "clientPath": [
+      "linkedin"
+    ],
+    "method": "searchAdLibrary",
+    "httpMethod": "GET",
+    "path": "/v1/linkedin/ad-library/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "advertiser",
+        "jsonKey": "advertiser",
+        "displayName": "Advertiser",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "country",
+        "jsonKey": "country",
+        "displayName": "Country",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "linkedin",
+    "resourceName": "LinkedIn",
+    "operation": "getAdLibraryAd",
+    "name": "Get Ad Library Ad",
+    "description": "",
+    "clientPath": [
+      "linkedin"
+    ],
+    "method": "getAdLibraryAd",
+    "httpMethod": "GET",
+    "path": "/v1/linkedin/ad-library/ad",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "ad_id",
+        "jsonKey": "ad_id",
+        "displayName": "Ad ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "linkInBio",
+    "resourceName": "Link in Bio",
+    "operation": "getPage",
+    "name": "Get Page",
+    "description": "",
+    "clientPath": [
+      "linkInBio"
+    ],
+    "method": "getPage",
+    "httpMethod": "GET",
+    "path": "/v1/link-in-bio/{provider}",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "provider",
+        "jsonKey": "provider",
+        "displayName": "Provider",
+        "type": "options",
+        "required": true,
+        "options": [
+          "linktree",
+          "komi",
+          "pillar",
+          "linkbio",
+          "linkme"
+        ],
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "username",
+        "jsonKey": "username",
+        "displayName": "Username",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "tiktok",
+    "resourceName": "TikTok",
+    "operation": "searchShop",
+    "name": "Search Shop",
+    "description": "",
+    "clientPath": [
+      "tiktok"
+    ],
+    "method": "searchShop",
+    "httpMethod": "GET",
+    "path": "/v1/tiktok/shop/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "tiktok",
+    "resourceName": "TikTok",
+    "operation": "getShopProduct",
+    "name": "Get Shop Product",
+    "description": "",
+    "clientPath": [
+      "tiktok"
+    ],
+    "method": "getShopProduct",
+    "httpMethod": "GET",
+    "path": "/v1/tiktok/shop/product",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "product_id",
+        "jsonKey": "product_id",
+        "displayName": "Product ID",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "URL",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "tiktok",
+    "resourceName": "TikTok",
+    "operation": "searchAdLibrary",
+    "name": "Search Ad Library",
+    "description": "",
+    "clientPath": [
+      "tiktok"
+    ],
+    "method": "searchAdLibrary",
+    "httpMethod": "GET",
+    "path": "/v1/tiktok/ad-library/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "advertiser",
+        "jsonKey": "advertiser",
+        "displayName": "Advertiser",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "country",
+        "jsonKey": "country",
+        "displayName": "Country",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "tiktok",
+    "resourceName": "TikTok",
+    "operation": "getAdLibraryAd",
+    "name": "Get Ad Library Ad",
+    "description": "",
+    "clientPath": [
+      "tiktok"
+    ],
+    "method": "getAdLibraryAd",
+    "httpMethod": "GET",
+    "path": "/v1/tiktok/ad-library/ad",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "ad_id",
+        "jsonKey": "ad_id",
+        "displayName": "Ad ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "google",
+    "resourceName": "Google",
+    "operation": "searchAdLibrary",
+    "name": "Search Ad Library",
+    "description": "",
+    "clientPath": [
+      "google"
+    ],
+    "method": "searchAdLibrary",
+    "httpMethod": "GET",
+    "path": "/v1/google/ad-library/search",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [],
+    "optionalFields": [
+      {
+        "name": "advertiser",
+        "jsonKey": "advertiser",
+        "displayName": "Advertiser",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "region",
+        "jsonKey": "region",
+        "displayName": "Region",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "google",
+    "resourceName": "Google",
+    "operation": "getAdLibraryAd",
+    "name": "Get Ad Library Ad",
+    "description": "",
+    "clientPath": [
+      "google"
+    ],
+    "method": "getAdLibraryAd",
+    "httpMethod": "GET",
+    "path": "/v1/google/ad-library/ad",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "ad_id",
+        "jsonKey": "ad_id",
+        "displayName": "Ad ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
     "optionalFields": []
   }
 ];
