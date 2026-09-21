@@ -337,6 +337,19 @@ export const OPERATIONS: OperationSpec[] = [
         "type": "number",
         "required": false,
         "rawType": "number"
+      },
+      {
+        "name": "proxy",
+        "jsonKey": "proxy",
+        "displayName": "Proxy",
+        "type": "options",
+        "required": false,
+        "options": [
+          "auto",
+          "basic",
+          "stealth"
+        ],
+        "rawType": "\"auto\" | \"basic\" | \"stealth\""
       }
     ]
   },
@@ -1638,6 +1651,19 @@ export const OPERATIONS: OperationSpec[] = [
         "type": "number",
         "required": false,
         "rawType": "number"
+      },
+      {
+        "name": "proxy",
+        "jsonKey": "proxy",
+        "displayName": "Proxy",
+        "type": "options",
+        "required": false,
+        "options": [
+          "auto",
+          "basic",
+          "stealth"
+        ],
+        "rawType": "\"auto\" | \"basic\" | \"stealth\""
       }
     ]
   },
@@ -1716,6 +1742,19 @@ export const OPERATIONS: OperationSpec[] = [
         "type": "number",
         "required": false,
         "rawType": "number"
+      },
+      {
+        "name": "proxy",
+        "jsonKey": "proxy",
+        "displayName": "Proxy",
+        "type": "options",
+        "required": false,
+        "options": [
+          "auto",
+          "basic",
+          "stealth"
+        ],
+        "rawType": "\"auto\" | \"basic\" | \"stealth\""
       }
     ]
   },
@@ -1877,6 +1916,19 @@ export const OPERATIONS: OperationSpec[] = [
         "type": "boolean",
         "required": false,
         "rawType": "boolean"
+      },
+      {
+        "name": "proxy",
+        "jsonKey": "proxy",
+        "displayName": "Proxy",
+        "type": "options",
+        "required": false,
+        "options": [
+          "auto",
+          "basic",
+          "stealth"
+        ],
+        "rawType": "\"auto\" | \"basic\" | \"stealth\""
       }
     ]
   },
