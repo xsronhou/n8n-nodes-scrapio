@@ -104,6 +104,34 @@ export const RESOURCE_OPTIONS: Array<{ name: string; value: string }> = [
     "value": "autotrader"
   },
   {
+    "name": "Glassdoor",
+    "value": "glassdoor"
+  },
+  {
+    "name": "Trustpilot",
+    "value": "trustpilot"
+  },
+  {
+    "name": "ZipRecruiter",
+    "value": "ziprecruiter"
+  },
+  {
+    "name": "Dice",
+    "value": "dice"
+  },
+  {
+    "name": "SimplyHired",
+    "value": "simplyhired"
+  },
+  {
+    "name": "Built In",
+    "value": "builtin"
+  },
+  {
+    "name": "Wellfound",
+    "value": "wellfound"
+  },
+  {
     "name": "ChatGPT",
     "value": "chatgpt"
   },
@@ -3304,6 +3332,397 @@ export const OPERATIONS: OperationSpec[] = [
         "name": "geo",
         "jsonKey": "geo",
         "displayName": "Geo",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "glassdoor",
+    "resourceName": "Glassdoor",
+    "operation": "jobs",
+    "name": "Search Jobs",
+    "description": "",
+    "clientPath": [
+      "glassdoor"
+    ],
+    "method": "jobs",
+    "httpMethod": "GET",
+    "path": "/v1/glassdoor/jobs",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "location",
+        "jsonKey": "location",
+        "displayName": "Location",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "glassdoor",
+    "resourceName": "Glassdoor",
+    "operation": "jobDetail",
+    "name": "Get Job Detail",
+    "description": "",
+    "clientPath": [
+      "glassdoor"
+    ],
+    "method": "jobDetail",
+    "httpMethod": "GET",
+    "path": "/v1/glassdoor/job",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "job_id",
+        "jsonKey": "job_id",
+        "displayName": "Job ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
+    "resource": "trustpilot",
+    "resourceName": "Trustpilot",
+    "operation": "reviews",
+    "name": "Get Reviews",
+    "description": "",
+    "clientPath": [
+      "trustpilot"
+    ],
+    "method": "reviews",
+    "httpMethod": "GET",
+    "path": "/v1/trustpilot/reviews",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "domain",
+        "jsonKey": "domain",
+        "displayName": "Domain",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "stars",
+        "jsonKey": "stars",
+        "displayName": "Stars",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "language",
+        "jsonKey": "language",
+        "displayName": "Language",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "verified",
+        "jsonKey": "verified",
+        "displayName": "Verified",
+        "type": "boolean",
+        "required": false,
+        "rawType": "boolean"
+      },
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "ziprecruiter",
+    "resourceName": "ZipRecruiter",
+    "operation": "jobs",
+    "name": "Search Jobs",
+    "description": "",
+    "clientPath": [
+      "ziprecruiter"
+    ],
+    "method": "jobs",
+    "httpMethod": "GET",
+    "path": "/v1/ziprecruiter/jobs",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "location",
+        "jsonKey": "location",
+        "displayName": "Location",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "dice",
+    "resourceName": "Dice",
+    "operation": "jobs",
+    "name": "Search Jobs",
+    "description": "",
+    "clientPath": [
+      "dice"
+    ],
+    "method": "jobs",
+    "httpMethod": "GET",
+    "path": "/v1/dice/jobs",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "location",
+        "jsonKey": "location",
+        "displayName": "Location",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "simplyhired",
+    "resourceName": "SimplyHired",
+    "operation": "jobs",
+    "name": "Search Jobs",
+    "description": "",
+    "clientPath": [
+      "simplyhired"
+    ],
+    "method": "jobs",
+    "httpMethod": "GET",
+    "path": "/v1/simplyhired/jobs",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "location",
+        "jsonKey": "location",
+        "displayName": "Location",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      },
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "builtin",
+    "resourceName": "Built In",
+    "operation": "jobs",
+    "name": "Search Jobs",
+    "description": "",
+    "clientPath": [
+      "builtin"
+    ],
+    "method": "jobs",
+    "httpMethod": "GET",
+    "path": "/v1/builtin/jobs",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "query",
+        "jsonKey": "query",
+        "displayName": "Query",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
+        "type": "string",
+        "required": false,
+        "rawType": "string"
+      }
+    ]
+  },
+  {
+    "resource": "wellfound",
+    "resourceName": "Wellfound",
+    "operation": "jobs",
+    "name": "Search Jobs",
+    "description": "",
+    "clientPath": [
+      "wellfound"
+    ],
+    "method": "jobs",
+    "httpMethod": "GET",
+    "path": "/v1/wellfound/jobs",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "role",
+        "jsonKey": "role",
+        "displayName": "Role",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": [
+      {
+        "name": "limit",
+        "jsonKey": "limit",
+        "displayName": "Limit",
+        "type": "number",
+        "required": false,
+        "rawType": "number"
+      },
+      {
+        "name": "cursor",
+        "jsonKey": "cursor",
+        "displayName": "Cursor",
         "type": "string",
         "required": false,
         "rawType": "string"
