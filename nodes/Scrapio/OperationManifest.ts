@@ -3590,6 +3590,33 @@ export const OPERATIONS: OperationSpec[] = [
     ]
   },
   {
+    "resource": "dice",
+    "resourceName": "Dice",
+    "operation": "jobDetail",
+    "name": "Get Job Detail",
+    "description": "",
+    "clientPath": [
+      "dice"
+    ],
+    "method": "jobDetail",
+    "httpMethod": "GET",
+    "path": "/v1/dice/job",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "job_id",
+        "jsonKey": "job_id",
+        "displayName": "Job ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
     "resource": "simplyhired",
     "resourceName": "SimplyHired",
     "operation": "jobs",
@@ -3642,6 +3669,33 @@ export const OPERATIONS: OperationSpec[] = [
     ]
   },
   {
+    "resource": "simplyhired",
+    "resourceName": "SimplyHired",
+    "operation": "jobDetail",
+    "name": "Get Job Detail",
+    "description": "",
+    "clientPath": [
+      "simplyhired"
+    ],
+    "method": "jobDetail",
+    "httpMethod": "GET",
+    "path": "/v1/simplyhired/job",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "job_id",
+        "jsonKey": "job_id",
+        "displayName": "Job ID",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
+  },
+  {
     "resource": "builtin",
     "resourceName": "Built In",
     "operation": "jobs",
@@ -3684,6 +3738,33 @@ export const OPERATIONS: OperationSpec[] = [
         "rawType": "string"
       }
     ]
+  },
+  {
+    "resource": "builtin",
+    "resourceName": "Built In",
+    "operation": "jobDetail",
+    "name": "Get Job Detail",
+    "description": "",
+    "clientPath": [
+      "builtin"
+    ],
+    "method": "jobDetail",
+    "httpMethod": "GET",
+    "path": "/v1/builtin/job",
+    "argShape": "params",
+    "idLabel": null,
+    "isQueue": false,
+    "requiredFields": [
+      {
+        "name": "url",
+        "jsonKey": "url",
+        "displayName": "Url",
+        "type": "string",
+        "required": true,
+        "rawType": "string"
+      }
+    ],
+    "optionalFields": []
   },
   {
     "resource": "wellfound",
